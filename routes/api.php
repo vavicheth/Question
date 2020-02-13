@@ -23,3 +23,17 @@ Route::apiResource('/question/{question}/reply','ReplyController');
 Route::apiResource('/category','CategoryController');
 Route::post('/likeit/{reply}','LikeController@like_it');
 Route::post('/unlike/{reply}','LikeController@unlike');
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+});
