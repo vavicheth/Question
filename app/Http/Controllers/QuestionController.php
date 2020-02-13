@@ -72,7 +72,8 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $question->update($request->all());
+        return response('Updated!',Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -84,6 +85,6 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         $question->delete();
-        return response('Deleted!',201);
+        return response('Deleted!',Response::HTTP_NO_CONTENT);
     }
 }

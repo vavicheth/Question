@@ -19,3 +19,7 @@
 
 
 Route::apiResource('/question','QuestionController');
+Route::apiResource('/question/{question}/reply','ReplyController');
+Route::apiResource('/category','CategoryController');
+Route::post('/likeit/{reply}','LikeController@like_it');
+Route::post('/unlike/{reply}','LikeController@unlike');
